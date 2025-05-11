@@ -1,0 +1,12 @@
+2025-05-10 20:44:45 - Mouse moved to (2106, 355)
+2025-05-10 20:44:46 - Mouse moved to (2156, 357)
+2025-05-10 20:44:46 - Mouse pressed at (2178, 356) with Button.left
+2025-05-10 20:44:46 - Mouse released at (2178, 356) with Button.left
+2025-05-10 20:44:47 - Mouse moved to (2144, 393)
+2025-05-10 20:44:47 - Mouse moved to (2105, 425)
+2025-05-10 20:44:47 - Mouse moved to (2067, 458)
+2025-05-10 20:44:47 - Mouse moved to (2027, 489)
+2025-05-10 20:44:49 - Mouse moved to (2051, 445)
+2025-05-10 20:44:49 - Mouse moved to (2086, 409)
+2025-05-10 20:44:49 - Mouse moved to (2125, 377)
+2025-05-10 20:44:50 - Special key pressed: Key.esc

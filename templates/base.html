@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/plugins/bootstrap-5.3.2/bootstrap.min.css">
+    <script src="/assets/plugins/jquery-3.7.1/jquery.min.js"></script>
+{#    <script src="/assets/plugins/showdownjs-2.0.0/showdown.min.js"></script>#}
+    <script src="/assets/plugins/bootstrap-5.3.2/bootstrap.bundle.min.js"></script>
+  <title>
+      {% block title %}
+      {% endblock %}
+  </title>
+</head>
+<body>
+{#这是 {{ name }}.html#}
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark ps-4 pe-4">
+      <a class="navbar-brand" href="#">雅楠的博客</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- 左侧导航项 -->
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('home_page') }}">主页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about_page') }}">关于</a>
+            </li>
+        </ul>
+        
+        <!-- 右侧导航项 - 根据登录状态显示不同内容 -->
+        <ul class="navbar-nav">
+            {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="nav-link">欢迎 {{ current_user.fullname }}</span>
+                </li>
+                <li class="nav-item d-flex">
+                    <a class="nav-link me-3" href="{{ url_for('create_article_page') }}">发布新文章</a>
+                    <a class="nav-link" href="{{ url_for('logout_page') }}">退出</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login_page') }}">登录</a>
+                </li>
+            {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Flash 消息显示区域 -->
+    <div class="container mt-3">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+{% block content %}
+{% endblock %}
+
+<script type="text/javascript">
+    $('.alert').fadeOut(3000);
+</script>
+
+</body>
+</html>

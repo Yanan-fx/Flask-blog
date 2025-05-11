@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+雅楠的博客 - {{ article.title }}
+{% endblock %}
+
+{% block content %}
+{{ article.title }} <br/>
+内容：{{ article.content }}
+{% endblock %}

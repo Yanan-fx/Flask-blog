@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+雅楠的博客 - 添加新文章
+{% endblock %}
+
+{% block content %}
+<style>
+    .content_height {
+        height: 550px;
+        resize: vertical; /* 允许用户调整文本区域高度 */
+    }
+    .article-form {
+        margin-top: 20px; /* 添加顶部空间 */
+    }
+    /* 添加宽度控制 */
+    .article-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+</style>
+
+<div class="container article-container mt-3">
+    <h1 class="h3 mb-4">添加新文章</h1>
+    
+    <form method="POST" class="article-form">
+        {{ form.hidden_tag() }}
+        
+        <div class="mb-3">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control", placeholder="输入标题") }}
+        </div>
+        
+        <div class="mb-3">
+            {{ form.content.label(class="form-label") }}
+            {{ form.content(class="form-control content_height", placeholder="输入文章内容")}}
+        </div>
+        
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+            <button type="button" class="btn btn-secondary" onclick="window.history.back()">取消</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

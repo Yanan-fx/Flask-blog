@@ -1,0 +1,56 @@
+2025-04-27 18:15:47 - Mouse moved to (1908, 935)
+2025-04-27 18:15:47 - Mouse moved to (1907, 884)
+2025-04-27 18:15:47 - Mouse moved to (1909, 832)
+2025-04-27 18:15:47 - Mouse moved to (1909, 779)
+2025-04-27 18:15:47 - Mouse moved to (1904, 728)
+2025-04-27 18:15:47 - Mouse moved to (1895, 676)
+2025-04-27 18:15:47 - Mouse moved to (1879, 626)
+2025-04-27 18:15:47 - Mouse moved to (1859, 579)
+2025-04-27 18:15:47 - Mouse moved to (1834, 533)
+2025-04-27 18:15:47 - Mouse moved to (1808, 490)
+2025-04-27 18:15:47 - Mouse moved to (1764, 465)
+2025-04-27 18:15:48 - Mouse moved to (1736, 423)
+2025-04-27 18:15:48 - Mouse moved to (1725, 374)
+2025-04-27 18:15:48 - Mouse moved to (1698, 331)
+2025-04-27 18:15:48 - Mouse moved to (1666, 292)
+2025-04-27 18:15:48 - Mouse moved to (1639, 249)
+2025-04-27 18:15:49 - Mouse pressed at (1639, 248) with Button.left
+2025-04-27 18:15:49 - Mouse moved to (1689, 245)
+2025-04-27 18:15:49 - Mouse moved to (1740, 242)
+2025-04-27 18:15:49 - Mouse moved to (1791, 239)
+2025-04-27 18:15:49 - Mouse moved to (1843, 239)
+2025-04-27 18:15:49 - Mouse moved to (1895, 239)
+2025-04-27 18:15:49 - Mouse moved to (1948, 239)
+2025-04-27 18:15:49 - Mouse moved to (1999, 240)
+2025-04-27 18:15:49 - Mouse moved to (2049, 242)
+2025-04-27 18:15:49 - Mouse moved to (2099, 244)
+2025-04-27 18:15:49 - Mouse moved to (2150, 244)
+2025-04-27 18:15:49 - Mouse moved to (2200, 246)
+2025-04-27 18:15:49 - Mouse released at (2203, 246) with Button.left
+2025-04-27 18:15:50 - Mouse moved to (2153, 245)
+2025-04-27 18:15:50 - Mouse moved to (2103, 240)
+2025-04-27 18:15:50 - Mouse moved to (2051, 236)
+2025-04-27 18:15:50 - Mouse moved to (2000, 232)
+2025-04-27 18:15:50 - Mouse moved to (1948, 229)
+2025-04-27 18:15:50 - Mouse moved to (1895, 229)
+2025-04-27 18:15:50 - Mouse moved to (1845, 231)
+2025-04-27 18:15:50 - Mouse moved to (1794, 234)
+2025-04-27 18:15:50 - Mouse moved to (1743, 238)
+2025-04-27 18:15:50 - Mouse moved to (1691, 243)
+2025-04-27 18:15:50 - Mouse moved to (1638, 247)
+2025-04-27 18:15:50 - Mouse moved to (1588, 251)
+2025-04-27 18:15:50 - Mouse moved to (1537, 255)
+2025-04-27 18:15:50 - Mouse moved to (1487, 258)
+2025-04-27 18:15:50 - Mouse moved to (1437, 253)
+2025-04-27 18:15:50 - Mouse moved to (1387, 250)
+2025-04-27 18:15:51 - Mouse pressed at (1361, 249) with Button.left
+2025-04-27 18:15:51 - Mouse released at (1361, 249) with Button.left
+2025-04-27 18:15:52 - Special key pressed: Key.cmd
+2025-04-27 18:15:53 - Key pressed: d
+2025-04-27 18:51:25 - Special key pressed: Key.alt_l
+2025-04-27 18:51:25 - Special key pressed: Key.tab
+2025-04-27 18:51:26 - Special key pressed: Key.alt_l
+2025-04-27 18:51:26 - Special key pressed: Key.tab
+2025-04-27 18:51:27 - Special key pressed: Key.alt_l
+2025-04-27 18:51:27 - Special key pressed: Key.tab
+2025-04-27 18:51:28 - Special key pressed: Key.esc
