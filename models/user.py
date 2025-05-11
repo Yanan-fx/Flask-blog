@@ -1,7 +1,8 @@
 from flask_login import UserMixin
 from routes import db,login_manager
 from sqlalchemy import Integer, String, BLOB, TIMESTAMP,func
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+from typing import List
 from datetime import datetime
 
 
@@ -18,6 +19,13 @@ class User(db.Model,UserMixin):
     fullname: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str] = mapped_column(String(255), nullable=True)
     role: Mapped[str] = mapped_column(String(50), nullable=True)
+    
+    # 关系
+    comments = relationship("Comment", back_populates="user", cascade="all, delete-orphan")
 
     def check_password_correction(self, attempted_password):
         return self.password == attempted_password
+
+    @property
+    def is_admin(self):
+        return self.role == 'admin'

@@ -3,8 +3,75 @@
 {% block title %}
 雅楠的博客 - {{ article.title }}
 {% endblock %}
-
+{##}
 {% block content %}
-{{ article.title }} <br/>
-内容：{{ article.content }}
+<textarea id="article_content" style="display: none">{{ article.content }}</textarea>
+<div  class="container-xl">
+    <h4><p class="text-center" style="margin-top: 20px;">{{ article.title }}</p></h4>
+    <p class="text-center" style="margin-top: 10px;">最后更新: {{ article.update_time }}</p>
+    
+    {% if article.tags %}
+    <div class="text-center mb-3">
+        <small class="text-muted">标签: 
+        {% for tag in article.tags %}
+            <a href="{{ url_for('articles_by_tag', tag_id=tag.id) }}" class="badge bg-secondary text-decoration-none">{{ tag.name }}</a>
+        {% endfor %}
+        </small>
+    </div>
+    {% endif %}
+    
+    <div id="article_viewer" class="mb-5"></div>
+    
+    <!-- 评论区 -->
+    <div class="mt-5">
+        <h4 class="mb-4 border-bottom pb-2">评论区 ({{ comments|length }})</h4>
+        
+        <!-- 评论列表 -->
+        {% if comments %}
+            {% for comment in comments %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <strong>{{ comment.user.fullname }}</strong>
+                            <small class="text-muted ms-2">{{ comment.create_time.strftime('%Y-%m-%d %H:%M') }}</small>
+                        </div>
+                        
+                        {% if current_user.is_authenticated and (current_user.id == comment.user_id or current_user.is_admin) %}
+                        <form method="POST" action="{{ url_for('delete_comment', comment_id=comment.id) }}" onsubmit="return confirm('确定要删除这条评论吗？');">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">删除</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                    <p class="card-text">{{ comment.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-light">暂无评论，快来发表第一条评论吧！</div>
+        {% endif %}
+        
+        <!-- 评论表单 -->
+        {% if current_user.is_authenticated %}
+        <div class="mt-4">
+            <h5>发表评论</h5>
+            
+            <form method="POST" action="{{ url_for('add_comment_with_id', article_id=article.id) }}">
+                {{ comment_form.hidden_tag() }}
+                
+                <div class="mb-3">
+                    <textarea name="content" class="form-control" rows="3" placeholder="说点什么..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-dark">发表评论</button>
+            </form>
+        </div>
+        {% else %}
+        <div class="alert alert-info mt-4">
+            请<a href="{{ url_for('login_page') }}">登录</a>后发表评论
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script src="/assets/js/article.js"></script>
 {% endblock %}

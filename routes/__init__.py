@@ -14,4 +14,5 @@ login_manager = LoginManager(app)
 
 from routes import user_routes
 from routes import admin_routes
+from routes import comment_routes
 

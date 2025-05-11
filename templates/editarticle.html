@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 
 {% block title %}
-雅楠的博客 - 添加新文章
+    雅楠的博客 -
+    {% if is_edit %}
+        编辑文章
+    {% else %}
+        发布新文章
+    {% endif %}
 {% endblock %}
 
 {% block content %}
 <style>
     .content_height {
-        height: 550px;
-        resize: vertical; /* 允许用户调整文本区域高度 */
+        height: 450px;
+        resize: vertical; /* A允许用户调整文本区域高度 */
     }
     .article-form {
         margin-top: 20px; /* 添加顶部空间 */
@@ -18,14 +23,24 @@
         max-width: 900px;
         margin: 0 auto;
     }
+    .form-text {
+        color: #6c757d;
+        font-size: 0.875rem;
+    }
 </style>
 
 <div class="container article-container mt-3">
-    <h1 class="h3 mb-4">添加新文章</h1>
+    <h1 class="h3 mb-4">
+        {% if is_edit %}
+            编辑文章
+        {% else %}
+            添加新文章
+        {% endif %}
+    </h1>
     
     <form method="POST" class="article-form">
         {{ form.hidden_tag() }}
-        
+
         <div class="mb-3">
             {{ form.title.label(class="form-label") }}
             {{ form.title(class="form-control", placeholder="输入标题") }}
@@ -36,12 +51,17 @@
             {{ form.content(class="form-control content_height", placeholder="输入文章内容")}}
         </div>
         
+        <div class="mb-3">
+            {{ form.tags.label(class="form-label") }}
+            {{ form.tags(class="form-control", placeholder="输入标签，多个标签用逗号分隔") }}
+            <div class="form-text">{{ form.tags.description }}</div>
+        </div>
+        
         <div>
-            {{ form.submit(class="btn btn-primary") }}
-            <button type="button" class="btn btn-secondary" onclick="window.history.back()">取消</button>
+            {{ form.submit(class="btn btn-dark") }}
+            <a class="btn btn-outline-dark" href="{{ url_for('home_page') }}">返回</a>
         </div>
     </form>
 </div>
-
 
 {% endblock %}
