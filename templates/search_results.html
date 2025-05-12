@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+雅楠的博客 - 搜索结果: {{ query }}
+{% endblock %}
+
+{% block content %}
+<div class="container-xl">
+    <div class="alert alert-info mt-3">
+        搜索 "{{ query }}" 的结果 (共 {{ articles|length }} 条)
+        <a href="{{ url_for('home_page') }}" class="btn btn-sm btn-outline-dark ms-2">返回首页</a>
+    </div>
+    
+    {% if articles %}
+        {% for article in articles %}
+            {% if current_user.is_authenticated and current_user.is_admin %}
+                {% include 'includes/article_modals.html' %}
+            {% endif %}
+        <div class="card mt-4" style="background-color: #ecf2f9">
+            <div class="card-header">
+                <ul class="nav">
+                    <li class="nav-item me-auto">
+                        <a class="btn fs-5 fw-bold" href="{{ url_for('article_page', article_id=article.id) }}">{{ article.title }}</a>
+                    </li>
+                    {% if current_user.is_authenticated and current_user.is_admin %}
+                    <li class="nav-item px-1">
+                        <small class="text-body-secondary">
+                            <a class="btn" href="{{ url_for('edit_article_page', article_id=article.id) }}">编辑</a>
+                        </small>
+                    </li>
+                    <li class="nav-item px-1">
+                        <small class="text-body-secondary">
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#Modal-DeleteConfirm-{{ article.id }}">删除</button>
+                        </small>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <a class="btn fs-6" href="{{ url_for('article_page', article_id=article.id) }}">{{ article.content[:200] }}{% if article.content|length > 200 %}...{% endif %}</a>
+                </p>
+                
+                {% if article.tags %}
+                <div class="mb-2">
+                    <small class="text-muted">标签: 
+                    {% for tag in article.tags %}
+                        <a href="{{ url_for('articles_by_tag', tag_id=tag.id) }}" class="badge bg-secondary text-decoration-none">{{ tag.name }}</a>
+                    {% endfor %}
+                    </small>
+                </div>
+                {% endif %}
+                
+                <ul class="nav">
+                    <li class="nav-item ms-auto">
+                        <small class="text-body-secondary">发布时间: {{ article.create_time }}</small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-warning mt-4">
+            未找到与 "{{ query }}" 相关的文章。
+        </div>
+    {% endif %}
+</div>
+{% endblock %} 
